@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "framer-motion": "^12.42.0",
+    "lucide-react": "^1.22.0",
+    "mapcn": "^0.0.1",
+    "maplibre-gl": "^5.24.0",
+    "react-intersection-observer": "^10.0.3"
+  }
+}

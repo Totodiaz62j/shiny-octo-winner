@@ -1,0 +1,732 @@
+/**
+ * Landing Page — Odontología Integral
+ * Estilo: "Confianza Cercana" — Organic Modernism
+ * Paleta: Azul institucional #1E3A8A + celeste #0EA5E9 + verde conversión #10B981 + crema #FEFCF3
+ * Tipografía: Outfit (display) + DM Sans (body)
+ * Objetivo: Captar pacientes → WhatsApp
+ *
+ * Principios de diseño aplicados:
+ * - Asimetría guiada: layouts 60/40, offsets, staggered
+ * - Motivo orgánico recurrente: curvas celestes, blob shapes, bordes orgánicos
+ * - Fotos reales de la clínica como protagonistas
+ * - Identidad de marca fuerte con isotipo y azul profundo
+ */
+
+import { useEffect, useState } from "react";
+import {
+  Phone,
+  Clock,
+  MapPin,
+  Shield,
+  Heart,
+  Sparkles,
+  Users,
+  Star,
+  ChevronRight,
+  Menu,
+  X,
+} from "lucide-react";
+
+const WHATSAPP_NUMBER = "5491112345678";
+const WHATSAPP_MESSAGE = "Hola! Me gustaría agendar un turno.";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+// ─── WhatsApp SVG Icon ───────────────────────────────────────────────────────
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  );
+}
+
+// ─── Organic Curve Divider ───────────────────────────────────────────────────
+function OrganicDivider({ flip = false, color = "#FEFCF3" }: { flip?: boolean; color?: string }) {
+  return (
+    <div className={`w-full overflow-hidden leading-[0] ${flip ? "rotate-180" : ""}`}>
+      <svg
+        viewBox="0 0 1440 80"
+        preserveAspectRatio="none"
+        className="w-full h-12 sm:h-16 lg:h-20"
+      >
+        <path
+          d="M0,40 C360,80 720,0 1080,50 C1260,65 1380,30 1440,40 L1440,80 L0,80 Z"
+          fill={color}
+        />
+      </svg>
+    </div>
+  );
+}
+
+// ─── Navbar ──────────────────────────────────────────────────────────────────
+function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { label: "Servicios", href: "#servicios" },
+    { label: "Instalaciones", href: "#instalaciones" },
+    { label: "Nosotros", href: "#nosotros" },
+    { label: "Contacto", href: "#contacto" },
+  ];
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/95 backdrop-blur-md shadow-sm"
+          : "bg-white/80 backdrop-blur-sm"
+      }`}
+    >
+      <nav className="container flex items-center justify-between py-3">
+        {/* Logo */}
+        <a href="#" className="flex items-center gap-3">
+          <img
+            src="/manus-storage/logo_c8b0fb8a.jpg"
+            alt="Odontología Integral"
+            className="w-11 h-11 rounded-xl object-cover"
+          />
+          <div className="hidden sm:block">
+            <span className="font-display font-bold text-[#1E3A8A] text-base leading-tight block">
+              Odontología
+            </span>
+            <span className="font-display font-medium text-[#0EA5E9] text-xs leading-tight block">
+              Integral
+            </span>
+          </div>
+        </a>
+
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm font-medium text-gray-600 hover:text-[#1E3A8A] transition-colors duration-200 relative group"
+            >
+              {link.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#0EA5E9] rounded-full group-hover:w-full transition-all duration-300" />
+            </a>
+          ))}
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[#10B981] hover:bg-[#059669] text-white px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 active:scale-[0.97] shadow-md shadow-emerald-200/50"
+          >
+            <WhatsAppIcon className="w-4 h-4" />
+            Agendar turno
+          </a>
+        </div>
+
+        {/* Mobile hamburger */}
+        <button
+          className="md:hidden p-2 text-[#1E3A8A]"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Menú"
+        >
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </nav>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
+          <div className="container py-4 flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="text-base font-medium text-gray-700 hover:text-[#1E3A8A] py-2 border-b border-gray-50"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-[#10B981] hover:bg-[#059669] text-white px-5 py-3.5 rounded-xl font-medium transition-all duration-200 mt-2"
+            >
+              <WhatsAppIcon className="w-5 h-5" />
+              Agendar turno por WhatsApp
+            </a>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
+
+// ─── Hero Section ────────────────────────────────────────────────────────────
+function HeroSection() {
+  return (
+    <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+      {/* Background: real clinic photo with overlay */}
+      <div className="absolute inset-0">
+        <img
+          src="/manus-storage/foto fachada_9f7a91ff.webp"
+          alt=""
+          className="w-full h-full object-cover"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/40 lg:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-white/0 lg:hidden" />
+      </div>
+
+      {/* Decorative organic shapes */}
+      <div className="absolute top-32 right-[10%] w-64 h-64 bg-[#0EA5E9]/8 rounded-full blur-3xl hidden lg:block" />
+      <div className="absolute bottom-20 left-[5%] w-48 h-48 bg-[#10B981]/8 rounded-full blur-2xl hidden lg:block" />
+
+      <div className="container relative z-10 pt-28 pb-20">
+        <div className="max-w-2xl space-y-8">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-[#0EA5E9]/20 text-[#1E3A8A] px-4 py-2 rounded-full text-sm font-medium shadow-sm">
+            <span className="w-2 h-2 bg-[#10B981] rounded-full animate-pulse" />
+            Atención odontológica profesional y cercana
+          </div>
+
+          {/* Headline */}
+          <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-[3.5rem] text-[#1E3A8A] leading-[1.1] tracking-tight">
+            Tu sonrisa merece{" "}
+            <span className="relative inline-block">
+              atención de verdad
+              <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 300 12" fill="none" preserveAspectRatio="none">
+                <path d="M2 9 C60 2, 120 2, 180 7 S260 11, 298 5" stroke="#0EA5E9" strokeWidth="3.5" strokeLinecap="round" opacity="0.7" />
+              </svg>
+            </span>
+          </h1>
+
+          {/* Subheadline */}
+          <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-lg">
+            En Odontología Integral cuidamos tu salud bucal con un trato cercano
+            y profesional. Agendá tu turno en segundos.
+          </p>
+
+          {/* CTA buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 pt-2">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-[#10B981] hover:bg-[#059669] text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-200 active:scale-[0.97] shadow-xl shadow-emerald-300/30"
+            >
+              <WhatsAppIcon className="w-6 h-6" />
+              Escribinos por WhatsApp
+            </a>
+            <a
+              href="#servicios"
+              className="inline-flex items-center justify-center gap-2 text-[#1E3A8A] font-medium px-6 py-4 rounded-2xl border-2 border-[#1E3A8A]/15 hover:border-[#1E3A8A]/30 hover:bg-[#1E3A8A]/5 transition-all duration-200 backdrop-blur-sm"
+            >
+              Ver servicios
+              <ChevronRight size={18} />
+            </a>
+          </div>
+
+          {/* Trust indicators */}
+          <div className="flex flex-wrap gap-x-6 gap-y-3 pt-6 border-t border-gray-200/60">
+            <div className="flex items-center gap-2 text-sm text-gray-500">
+              <div className="w-8 h-8 bg-[#0EA5E9]/10 rounded-lg flex items-center justify-center">
+                <Clock size={14} className="text-[#0EA5E9]" />
+              </div>
+              Respuesta rápida
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-500">
+              <div className="w-8 h-8 bg-[#0EA5E9]/10 rounded-lg flex items-center justify-center">
+                <Shield size={14} className="text-[#0EA5E9]" />
+              </div>
+              Profesionales matriculados
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-500">
+              <div className="w-8 h-8 bg-[#0EA5E9]/10 rounded-lg flex items-center justify-center">
+                <Heart size={14} className="text-[#0EA5E9]" />
+              </div>
+              Trato personalizado
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Services Section ────────────────────────────────────────────────────────
+const services = [
+  {
+    icon: "🦷",
+    title: "Odontología General",
+    description: "Controles, limpiezas y tratamientos preventivos para mantener tu boca sana.",
+  },
+  {
+    icon: "✨",
+    title: "Estética Dental",
+    description: "Blanqueamientos, carillas y diseño de sonrisa para que te sientas mejor.",
+  },
+  {
+    icon: "🔩",
+    title: "Implantes",
+    description: "Recuperá piezas dentales con implantes de última generación.",
+  },
+  {
+    icon: "😁",
+    title: "Ortodoncia",
+    description: "Brackets y alineadores para una mordida correcta y una sonrisa alineada.",
+  },
+  {
+    icon: "🛡️",
+    title: "Endodoncia",
+    description: "Tratamientos de conducto con tecnología moderna y mínimo dolor.",
+  },
+  {
+    icon: "👶",
+    title: "Odontopediatría",
+    description: "Atención especializada para los más chicos, con paciencia y cariño.",
+  },
+];
+
+function ServicesSection() {
+  return (
+    <section id="servicios" className="py-24 bg-[#FEFCF3] relative">
+      <div className="container">
+        {/* Asymmetric header — left-aligned */}
+        <div className="max-w-xl mb-16">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-1 bg-[#0EA5E9] rounded-full" />
+            <span className="text-[#0EA5E9] font-medium text-sm uppercase tracking-wider">
+              Nuestros servicios
+            </span>
+          </div>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl text-[#1E3A8A] tracking-tight mb-4">
+            Todo lo que necesitás para tu salud bucal
+          </h2>
+          <p className="text-gray-600 leading-relaxed">
+            Ofrecemos una atención integral con los tratamientos más completos,
+            siempre con un enfoque humano y profesional.
+          </p>
+        </div>
+
+        {/* Services — staggered grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {services.map((service, i) => (
+            <div
+              key={i}
+              className={`group bg-white rounded-2xl p-6 border border-gray-100 hover:border-[#0EA5E9]/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative overflow-hidden ${
+                i % 3 === 1 ? "lg:translate-y-4" : ""
+              }`}
+            >
+              {/* Organic accent top-left */}
+              <div className="absolute -top-6 -left-6 w-20 h-20 bg-[#0EA5E9]/5 rounded-full group-hover:bg-[#0EA5E9]/10 transition-colors duration-300" />
+              <div className="relative">
+                <div className="text-3xl mb-4">{service.icon}</div>
+                <h3 className="font-display font-semibold text-lg text-[#1E3A8A] mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA below services */}
+        <div className="mt-14 flex items-center gap-4">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#0EA5E9]/20 to-transparent" />
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[#10B981]/10 hover:bg-[#10B981]/20 text-[#059669] font-medium px-6 py-3 rounded-xl transition-all duration-200"
+          >
+            <WhatsAppIcon className="w-5 h-5" />
+            Consultá por tu tratamiento
+            <ChevronRight size={16} />
+          </a>
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#0EA5E9]/20 to-transparent" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Facilities Section ──────────────────────────────────────────────────────
+function FacilitiesSection() {
+  return (
+    <section id="instalaciones" className="py-24 bg-white relative overflow-hidden">
+      {/* Decorative blob */}
+      <div className="absolute -top-20 -right-20 w-80 h-80 bg-[#0EA5E9]/5 rounded-full blur-3xl" />
+
+      <div className="container relative">
+        {/* Header — right-aligned for variety */}
+        <div className="max-w-xl ml-auto text-right mb-16">
+          <div className="flex items-center justify-end gap-3 mb-4">
+            <span className="text-[#0EA5E9] font-medium text-sm uppercase tracking-wider">
+              Nuestras instalaciones
+            </span>
+            <div className="w-10 h-1 bg-[#0EA5E9] rounded-full" />
+          </div>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl text-[#1E3A8A] tracking-tight mb-4">
+            Un espacio pensado para tu comodidad
+          </h2>
+          <p className="text-gray-600 leading-relaxed">
+            Instalaciones modernas, limpias y equipadas para brindarte la mejor
+            experiencia en cada visita.
+          </p>
+        </div>
+
+        {/* Editorial photo layout — asymmetric */}
+        <div className="grid grid-cols-12 gap-4 lg:gap-6">
+          {/* Large left image */}
+          <div className="col-span-12 lg:col-span-7 relative group rounded-3xl overflow-hidden">
+            <img
+              src="/manus-storage/sala de espera_a55dc650.webp"
+              alt="Sala de espera amplia y luminosa de la clínica"
+              className="w-full h-[300px] lg:h-[420px] object-cover group-hover:scale-[1.02] transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/60 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6">
+              <span className="bg-white/90 backdrop-blur-sm text-[#1E3A8A] font-medium text-sm px-4 py-2 rounded-lg">
+                Sala de espera
+              </span>
+            </div>
+          </div>
+
+          {/* Right column — two stacked */}
+          <div className="col-span-12 lg:col-span-5 flex flex-col gap-4 lg:gap-6">
+            <div className="relative group rounded-3xl overflow-hidden flex-1">
+              <img
+                src="/manus-storage/sala astencion 1_548159e7.webp"
+                alt="Consultorio dental equipado con tecnología moderna"
+                className="w-full h-[200px] lg:h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/60 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4">
+                <span className="bg-white/90 backdrop-blur-sm text-[#1E3A8A] font-medium text-sm px-3 py-1.5 rounded-lg">
+                  Consultorio
+                </span>
+              </div>
+            </div>
+            <div className="relative group rounded-3xl overflow-hidden flex-1">
+              <img
+                src="/manus-storage/foto fachada 2_afb576f2.webp"
+                alt="Fachada exterior de Odontología Integral"
+                className="w-full h-[200px] lg:h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/60 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4">
+                <span className="bg-white/90 backdrop-blur-sm text-[#1E3A8A] font-medium text-sm px-3 py-1.5 rounded-lg">
+                  Nuestra clínica
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Why Us Section ──────────────────────────────────────────────────────────
+const reasons = [
+  {
+    icon: <Users className="w-6 h-6" />,
+    title: "Trato humano y cercano",
+    description:
+      "Te escuchamos, te explicamos y te acompañamos en cada paso de tu tratamiento.",
+  },
+  {
+    icon: <Shield className="w-6 h-6" />,
+    title: "Profesionales matriculados",
+    description:
+      "Nuestro equipo está en constante formación para ofrecerte lo mejor.",
+  },
+  {
+    icon: <Sparkles className="w-6 h-6" />,
+    title: "Tecnología actualizada",
+    description:
+      "Equipamiento moderno para diagnósticos precisos y tratamientos eficientes.",
+  },
+  {
+    icon: <Clock className="w-6 h-6" />,
+    title: "Turnos flexibles",
+    description:
+      "Nos adaptamos a tus horarios. Agendá fácil y rápido por WhatsApp.",
+  },
+];
+
+function WhyUsSection() {
+  return (
+    <section id="nosotros" className="py-24 bg-[#FEFCF3] relative overflow-hidden">
+      {/* Decorative organic shape */}
+      <div className="absolute top-1/2 -left-32 w-64 h-64 bg-[#1E3A8A]/5 rounded-full blur-3xl -translate-y-1/2" />
+
+      <div className="container relative">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left: content — 7 cols */}
+          <div className="lg:col-span-7 space-y-10 order-2 lg:order-1">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-1 bg-[#0EA5E9] rounded-full" />
+                <span className="text-[#0EA5E9] font-medium text-sm uppercase tracking-wider">
+                  Por qué elegirnos
+                </span>
+              </div>
+              <h2 className="font-display font-bold text-3xl sm:text-4xl text-[#1E3A8A] tracking-tight mb-4">
+                Más que una clínica, un lugar de confianza
+              </h2>
+              <p className="text-gray-600 leading-relaxed max-w-lg">
+                Desde hace más de 10 años acompañamos a familias enteras en el
+                cuidado de su salud bucal, con dedicación y profesionalismo.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-6">
+              {reasons.map((reason, i) => (
+                <div key={i} className="flex gap-4">
+                  <div className="w-12 h-12 bg-white border border-[#0EA5E9]/20 rounded-2xl flex items-center justify-center text-[#1E3A8A] shrink-0 shadow-sm">
+                    {reason.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-display font-semibold text-[#1E3A8A] text-sm mb-1">
+                      {reason.title}
+                    </h3>
+                    <p className="text-xs text-gray-500 leading-relaxed">
+                      {reason.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Inline CTA */}
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-[#10B981] hover:bg-[#059669] text-white px-7 py-3.5 rounded-xl font-medium transition-all duration-200 active:scale-[0.97] shadow-lg shadow-emerald-200/40"
+            >
+              <WhatsAppIcon className="w-5 h-5" />
+              Hablá con nosotros
+            </a>
+          </div>
+
+          {/* Right: image — 5 cols */}
+          <div className="lg:col-span-5 relative order-1 lg:order-2">
+            <div className="relative">
+              {/* Organic background shape */}
+              <div className="absolute -inset-4 bg-[#0EA5E9]/10 rounded-[2.5rem] -rotate-3" />
+              <div className="relative rounded-3xl overflow-hidden shadow-xl">
+                <img
+                  src="/manus-storage/hero-smile_8b6a8eec.jpg"
+                  alt="Paciente sonriendo con confianza"
+                  className="w-full h-[350px] lg:h-[420px] object-cover"
+                />
+              </div>
+            </div>
+            {/* Floating stat card */}
+            <div className="absolute -bottom-4 -left-4 lg:-left-8 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 flex items-center gap-3 animate-float">
+              <div className="w-11 h-11 bg-[#1E3A8A] rounded-xl flex items-center justify-center">
+                <Star className="w-5 h-5 text-white" fill="white" />
+              </div>
+              <div>
+                <p className="font-display font-bold text-[#1E3A8A] text-base leading-tight">+10 años</p>
+                <p className="text-xs text-gray-500">cuidando sonrisas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── CTA Final Section ───────────────────────────────────────────────────────
+function CTASection() {
+  return (
+    <section className="relative py-28 overflow-hidden">
+      {/* Background with real clinic image */}
+      <div className="absolute inset-0">
+        <img
+          src="/manus-storage/dental-services-bg_26850ffc.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-[#1E3A8A]/90" />
+      </div>
+
+      {/* Decorative organic shapes */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#0EA5E9]/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#10B981]/15 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+
+      <div className="container relative z-10">
+        <div className="max-w-2xl mx-auto text-center space-y-8">
+          {/* Decorative curve */}
+          <svg className="w-16 h-4 mx-auto opacity-50" viewBox="0 0 80 16" fill="none">
+            <path d="M2 14 C20 2, 40 2, 60 10 S78 14, 78 8" stroke="#0EA5E9" strokeWidth="2.5" strokeLinecap="round" />
+          </svg>
+
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+            ¿Listo para cuidar tu sonrisa?
+          </h2>
+          <p className="text-blue-100/90 text-lg leading-relaxed max-w-lg mx-auto">
+            Escribinos por WhatsApp y agendá tu turno en minutos. Te respondemos
+            rápido y sin vueltas.
+          </p>
+          <div className="pt-2">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-[#10B981] hover:bg-[#059669] text-white px-10 py-5 rounded-2xl font-semibold text-lg transition-all duration-200 active:scale-[0.97] shadow-2xl shadow-emerald-900/40"
+            >
+              <WhatsAppIcon className="w-7 h-7" />
+              Agendar turno ahora
+            </a>
+          </div>
+          <p className="text-blue-200/70 text-sm">
+            Sin compromiso · Respuesta en minutos
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Footer ──────────────────────────────────────────────────────────────────
+function Footer() {
+  return (
+    <footer id="contacto" className="bg-[#0F172A] text-white py-16">
+      <div className="container">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
+          {/* Brand */}
+          <div className="space-y-5">
+            <div className="flex items-center gap-3">
+              <img
+                src="/manus-storage/logo_c8b0fb8a.jpg"
+                alt="Odontología Integral"
+                className="w-12 h-12 rounded-xl object-cover"
+              />
+              <div>
+                <span className="font-display font-bold text-base block leading-tight">
+                  Odontología
+                </span>
+                <span className="font-display font-medium text-[#0EA5E9] text-sm block leading-tight">
+                  Integral
+                </span>
+              </div>
+            </div>
+            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+              Clínica dental con atención profesional y cercana. Tu salud bucal
+              es nuestra prioridad desde hace más de 10 años.
+            </p>
+          </div>
+
+          {/* Contact */}
+          <div className="space-y-5">
+            <h4 className="font-display font-semibold text-base">Contacto</h4>
+            <div className="space-y-3">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-400 hover:text-[#10B981] transition-colors text-sm group"
+              >
+                <div className="w-9 h-9 bg-white/5 group-hover:bg-[#10B981]/10 rounded-lg flex items-center justify-center transition-colors">
+                  <Phone size={16} />
+                </div>
+                Escribinos por WhatsApp
+              </a>
+              <div className="flex items-center gap-3 text-gray-400 text-sm">
+                <div className="w-9 h-9 bg-white/5 rounded-lg flex items-center justify-center">
+                  <MapPin size={16} />
+                </div>
+                Consultá nuestra ubicación
+              </div>
+            </div>
+          </div>
+
+          {/* Hours */}
+          <div className="space-y-5">
+            <h4 className="font-display font-semibold text-base">Horarios de atención</h4>
+            <div className="space-y-3 text-sm">
+              <div className="flex justify-between text-gray-400 border-b border-gray-800 pb-2">
+                <span>Lunes a Viernes</span>
+                <span className="font-medium text-gray-300">9:00 - 19:00</span>
+              </div>
+              <div className="flex justify-between text-gray-400 border-b border-gray-800 pb-2">
+                <span>Sábados</span>
+                <span className="font-medium text-gray-300">9:00 - 13:00</span>
+              </div>
+              <div className="flex justify-between text-gray-500">
+                <span>Domingos</span>
+                <span>Cerrado</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-gray-800 mt-14 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-gray-500 text-sm">
+            &copy; {new Date().getFullYear()} Odontología Integral. Todos los derechos reservados.
+          </p>
+          <div className="flex items-center gap-2 text-gray-600 text-xs">
+            <div className="w-2 h-2 bg-[#10B981] rounded-full" />
+            Respondemos en minutos por WhatsApp
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+// ─── Floating WhatsApp Button ────────────────────────────────────────────────
+function FloatingWhatsApp() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setVisible(true), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-[#25D366] hover:bg-[#128C7E] text-white pl-5 pr-6 py-3.5 rounded-full shadow-2xl shadow-green-900/30 transition-all duration-500 active:scale-[0.93] ${
+        visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+      }`}
+      aria-label="Contactar por WhatsApp"
+    >
+      <WhatsAppIcon className="w-6 h-6" />
+      <span className="font-medium text-sm hidden sm:inline">¿Necesitás un turno?</span>
+    </a>
+  );
+}
+
+// ─── Main Page ───────────────────────────────────────────────────────────────
+export default function Home() {
+  return (
+    <div className="min-h-screen overflow-x-hidden">
+      <Navbar />
+      <HeroSection />
+      <OrganicDivider color="#FEFCF3" />
+      <ServicesSection />
+      <OrganicDivider flip color="#FEFCF3" />
+      <FacilitiesSection />
+      <OrganicDivider color="#FEFCF3" />
+      <WhyUsSection />
+      <CTASection />
+      <Footer />
+      <FloatingWhatsApp />
+    </div>
+  );
+}

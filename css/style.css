@@ -1,0 +1,47 @@
+/* Global Resets and Custom Animations */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --whatsapp-color: #10B981;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* High-Conversion Pulse Animation for CTAs */
+@keyframes pulse-emerald {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 0 15px rgba(16, 185, 129, 0);
+        transform: scale(1.02);
+    }
+}
+
+.animate-pulse-emerald {
+    animation: pulse-emerald 2s infinite;
+}
+
+/* Custom scrollbar for a premium feel */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F8FAFC;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+}

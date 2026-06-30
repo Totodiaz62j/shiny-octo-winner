@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Odontología Integral Córdoba - Especialistas en implantes, ortodoncia y salud dental con tecnología de vanguardia. Atención sin estrés en el corazón de Córdoba.">
+    <title>Odontología Integral Córdoba | Excelencia en Salud Dental</title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#1E3A8A',   // Blue-800 (Authority)
+                            secondary: '#0EA5E9', // Sky-500 (Clinical)
+                            accent: '#10B981',    // Emerald-600 (Conversion)
+                            background: '#F8FAFC', // Gray-50
+                            text: '#334155',       // Gray-800
+                            muted: '#64748B',      // Gray-500
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Global Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-brand-background text-brand-text font-sans antialiased">
+
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">OI</div>
+                <span class="text-xl font-bold text-brand-primary tracking-tight hidden sm:block">Odontología <span class="text-brand-secondary">Integral</span></span>
+            </div>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#servicios" class="text-sm font-medium text-brand-muted hover:text-brand-primary transition-colors">Servicios</a>
+                <a href="#nosotros" class="text-sm font-medium text-brand-muted hover:text-brand-primary transition-colors">Sobre Nosotros</a>
+                <a href="#casos" class="text-sm font-medium text-brand-muted hover:text-brand-primary transition-colors">Casos de Éxito</a>
+                <a href="#contacto" class="text-sm font-medium text-brand-muted hover:text-brand-primary transition-colors">Contacto</a>
+            </div>
+
+            <!-- CTA Nav -->
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/tu-numero" class="hidden sm:block bg-brand-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-blue-900 transition-all shadow-sm">
+                    Agendar Consulta
+                </a>
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-button" class="md:hidden p-2 text-brand-primary" aria-label="Abrir menú">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white border-b border-gray-100 px-4 py-6 space-y-4 shadow-xl transition-all duration-300 ease-in-out">
+            <a href="#servicios" class="block text-lg font-medium text-brand-text hover:text-brand-primary py-2">Servicios</a>
+            <a href="#nosotros" class="block text-lg font-medium text-brand-text hover:text-brand-primary py-2">Sobre Nosotros</a>
+            <a href="#casos" class="block text-lg font-medium text-brand-text hover:text-brand-primary py-2">Casos de Éxito</a>
+            <a href="#contacto" class="block text-lg font-medium text-brand-text hover:text-brand-primary py-2">Contacto</a>
+            <a href="https://wa.me/tu-numero" class="block w-full text-center bg-brand-primary text-white px-6 py-3 rounded-xl font-bold">
+                Agendar Consulta
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Decorative Elements -->
+        <div class="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-l from-sky-50 to-transparent opacity-70"></div>
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+
+                <!-- Hero Content -->
+                <div class="flex-1 text-center lg:text-left space-y-8">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-brand-primary text-xs font-bold tracking-wide uppercase">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                        </span>
+                        Líderes en Odontología Digital en Córdoba
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold text-brand-primary leading-[1.1] tracking-tight">
+                        Excelencia en Salud Dental:<br>
+                        <span class="text-brand-secondary">Vanguardia y Cuidado Humano</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-brand-muted max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Especialistas en Implantes y Estética Dental. Combinamos la precisión digital con un enfoque sin estrés para transformar tu sonrisa y recuperar tu seguridad.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <!-- Primary CTA -->
+                        <a href="https://wa.me/tu-numero" class="animate-pulse-emerald group flex items-center gap-3 bg-brand-accent text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg shadow-emerald-200 hover:bg-emerald-700 transition-all hover:-translate-y-1">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.48 10.02c-1.25-1.31-3.1-2.2-5.22-2.2h-.27c-1.25 0-2.4.54-3.19 1.44l-1.06 1.24c-.5.61-.51 1.33.11 1.94l.66 1.32c.4.8.5 1.6.1 2.4l-.66 1.32c-.4.6-.81 1.1-1.32 1.44l-1.24 1.06c-.6.4-.51 1.33.11 1.94l1.06 1.24c1.25-1.31 3.1-2.2 5.22-2.2h.27c1.25 0 2.4.54 3.19 1.44l1.06 1.24c.5.61.51 1.33.11 1.94l-.66 1.32c-.4.8-.5 1.6-.1 2.4l.66 1.32c.4.6.81 1.1 1.32 1.44l1.24 1.06c.6.4.51 1.33.11 1.94l-1.06 1.24c-1.25-1.31-3.1-2.2-5.22-2.2h-.27c-1.25 0-2.4-.54-3.19-1.44l-1.06-1.24c-.5-.61-.51-1.33.11-1.94l.66-1.32c.4-.8.5-1.6.1-2.4l-.66-1.32c-.4-.6-.81-1.1-1.32-1.44l-1.24-1.06c-.6-.4-.51-1.33.11-1.94l1.06-1.24c1.25-1.31 3.1-2.2 5.22-2.2h.27c1.25 0 2.4.54 3.19 1.44l1.06 1.24c.5.61.51 1.33.11 1.94l-.66 1.32c-.4.8-.5 1.6-.1 2.4l.66 1.32c.4.6.81 1.1 1.32 1.44l1.24 1.06c.6.4.51 1.33.11 1.94l-1.06 1.24c-1.25-1.31-3.1-2.2-5.22-2.2h-.27c-1.25 0-2.4-.54-3.19-1.44l-1.06-1.24c-.5-.61-.51-1.33.11-1.94l.66-1.32c.4-.8.5-1.6.1-2.4l-.66-1.32c-.4-.6-.81-1.1-1.32-1.44l-1.24-1.06c-.6-.4-.51-1.33.11-1.94l1.06-1.24c1.25-1.31 3.1-2.2 5.22-2.2h.27z"/></svg>
+                            Consultar Disponibilidad por WhatsApp
+                        </a>
+                        <!-- Secondary CTA -->
+                        <a href="#servicios" class="px-8 py-4 rounded-2xl text-sm font-bold text-brand-primary hover:bg-blue-50 transition-all">
+                            Ver Especialidades
+                        </a>
+                    </div>
+
+                    <!-- Trust Badge -->
+                    <div class="flex items-center justify-center lg:justify-start gap-3 pt-6">
+                        <div class="flex gap-1 text-yellow-400">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.86 1.52a1 1 0 01-.84-.52l-.84-4.3A1 1 0 016.95 10h6.1l-4-4a1 1 0 01.84-1.82l.84 4.3a1 1 0 01.69.52z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.86 1.52a1 1 0 01-.84-.52l-.84-4.3A1 1 0 016.95 10h6.1l-4-4a1 1 0 01.84-1.82l.84 4.3a1 1 0 01.69.52z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.86 1.52a1 1 0 01-.84-.52l-.84-4.3A1 1 0 016.95 10h6.1l-4-4a1 1 0 01.84-1.82l.84 4.3a1 1 0 01.69.52z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.86 1.52a1 1 0 01-.84-.52l-.84-4.3A1 1 0 016.95 10h6.1l-4-4a1 1 0 01.84-1.82l.84 4.3a1 1 0 01.69.52z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.86 1.52a1 1 0 01-.84-.52l-.84-4.3A1 1 0 016.95 10h6.1l-4-4a1 1 0 01.84-1.82l.84 4.3a1 1 0 01.69.52z"/></svg>
+                        </div>
+                        <span class="text-sm font-medium text-brand-muted italic">
+                            ⭐ 4.9/5 en Google Reviews | +1000 Pacientes Felices
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="flex-1 relative">
+                    <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1629909608185-267779696394?auto=format&fit=crop&q=80&w=1200" alt="Clínica Odontología Integral Córdoba" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-brand-secondary rounded-full blur-3xl opacity-20 -z-10"></div>
+                    <div class="absolute -top-10 -left-10 w-64 h-64 bg-brand-primary rounded-full blur-3xl opacity-10 -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Stack: The Conversion Engine -->
+    <section id="trust-stack" class="py-20 lg:py-32 space-y-24 overflow-hidden">
+
+        <!-- Block A: Empathy & Calm (The "Stress-Free" angle) -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <!-- Text Content (Left on Desktop) -->
+                <div class="flex-1 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 border border-sky-100 text-brand-secondary text-xs font-bold uppercase tracking-wider">
+                        Experiencia Humana
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-primary tracking-tight leading-tight">
+                        Redefinimos tu visita al dentista:<br>
+                        <span class="text-brand-secondary">Sin miedo, sin estrés.</span>
+                    </h2>
+                    <p class="text-lg text-brand-muted leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        Sabemos que el miedo al dentista es real. Por eso, hemos diseñado un entorno de calma donde la prioridad es tu bienestar. Utilizamos técnicas de mínima invasión y un trato humano excepcional para que tu única preocupación sea volver a sonreír.
+                    </p>
+
+                    <!-- Value Points -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+                        <div class="flex items-center gap-3 p-3 rounded-xl bg-white border border-gray-100 shadow-sm">
+                            <div class="p-2 bg-sky-100 rounded-lg text-brand-secondary">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                            </div>
+                            <span class="text-sm font-semibold text-brand-text">Ambiente Relajado</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 rounded-xl bg-white border border-gray-100 shadow-sm">
+                            <div class="p-2 bg-sky-100 rounded-lg text-brand-secondary">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            </div>
+                            <span class="text-sm font-semibold text-brand-text">Técnicas Sin Dolor</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 rounded-xl bg-white border border-gray-100 shadow-sm">
+                            <div class="p-2 bg-sky-100 rounded-lg text-brand-secondary">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width la-2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.818-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            </div>
+                            <span class="text-sm font-semibold text-brand-text">Trato Humano</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Content (Right on Desktop) -->
+                <div class="flex-1 relative">
+                    <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1588772422722-37h-7927f-5c2a?auto=format&fit=crop&q=80&w=1200" alt="Entorno de calma Odontología Integral" class="w-full h-auto object-cover aspect-[4/3]">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 w-48 h-48 bg-sky-200 rounded-full blur-3xl opacity-40 -z-10"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Block B: Digital Precision (The Authority angle) -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
+                <!-- Text Content (Right on Desktop) -->
+                <div class="flex-1 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-brand-primary text-xs font-bold uppercase tracking-wider">
+                        Tecnología de Vanguardia
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-primary tracking-tight leading-tight">
+                        Tecnología que garantiza<br>
+                        <span class="text-brand-secondary">resultados exactos.</span>
+                    </h2>
+                    <p class="text-lg text-brand-muted leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        No dejamos nada al azar. Integramos la odontología digital más avanzada de Córdoba para diagnósticos precisos y tratamientos más rápidos. Desde escaneos 3D que eliminan las molestas pastas de impresión, hasta planificaciones quirúrgicas digitales.
+                    </p>
+
+                    <!-- Value Points -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+                        <div class="flex items-center gap-3 p-3 rounded-xl bg-white border border-gray-100 shadow-sm">
+                            <div class="p-2 bg-blue-100 rounded-lg text-brand-primary">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <span class="text-sm font-semibold text-brand-text">Escaneo 3D</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 rounded-xl bg-white border border-gray-100 shadow-sm">
+                            <div class="p-2 bg-blue-100 rounded-lg text-brand-primary">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-1.16-1.16m0 0l-1.16 1.16m0-1.16l1.16-1.16m-7.5 7.5a4 4 0 11-4 4 4 4 0 014-4z"/></svg>
+                            </div>
+                            <span class="text-sm font-semibold text-brand-text">Radiología Avanzada</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 rounded-xl bg-white border border-gray-100 shadow-sm">
+                            <div class="p-2 bg-blue-100 rounded-lg text-brand-primary">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            </div>
+                            <span class="text-sm font-semibold text-brand-text">Planificación Digital</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Content (Left on Desktop) -->
+                <div class="flex-1 relative">
+                    <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl transform hover:scale-[1.0 la-02] transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1588772422722-37h-7927f-5c2a?auto=format&fit=crop&q=80&w=1200" alt="Tecnología Digital Odontología Integral" class="w-full h-auto object-cover aspect-[4/3]">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-blue-200 rounded-full blur-3xl opacity-40 -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section: The Solutions Catalog -->
+    <section id="servicios" class="py-20 lg:py-32 bg-white relative">
+        <!-- Subtle background texture -->
+        <div class="absolute inset-0 -z-10 opacity-30" style="background-image: radial-gradient(#e2e8f0 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-primary tracking-tight">
+                    Nuestras Especialidades:<br>
+                    <span class="text-brand-secondary">Cuidado Integral para tu Sonrisa</span>
+                </h2>
+                <p class="text-lg text-brand-muted leading-relaxed">
+                    Ofrecemos un espectro completo de soluciones dentales avanzadas, coordinando cada fase de tu tratamiento para garantizar resultados naturales y duraderos.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Implantes -->
+                <div class="group p-8 bg-brand-background border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-brand-secondary shadow-sm mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-primary mb-3">Implantes Dentales</h3>
+                    <p class="text-brand-muted leading-relaxed mb-6 flex-grow">
+                        Recupera la funcionalidad y estética de tu sonrisa con la tecnología de integración más segura y duradera del mercado.
+                    </p>
+                    <a href="https://wa.me/tu-numero" class="text-sm font-bold text-brand-secondary hover:text-brand-primary transition-colors flex items-center gap-2 group-hover:gap-3 transition-all">
+                        Saber más <span class="transition-transform group-hover:translate-x-1">→</span>
+                    </a>
+                </div>
+
+                <!-- Odontología General -->
+                <div class="group p-8 bg-brand-background border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-brand-secondary shadow-sm mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.21a11.35 11.35 0 01-5.618 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-primary mb-3">Odontología General</h3>
+                    <p class="text-brand-muted leading-relaxed mb-6 flex-grow">
+                        Prevención y cuidado integral para mantener tu salud bucal en estado óptimo con revisiones exhaustivas y preventivas.
+                    </p>
+                    <a href="https://wa.me/tu-numero" class="text-sm font-bold text-brand-secondary hover:text-brand-primary transition-colors flex items-center gap-2 group-hover:gap-3 transition-all">
+                        Saber más <span class="transition-transform group-hover:translate-x-1">→</span>
+                    </a>
+                </div>
+
+                <!-- Odontopediatría -->
+                <div class="group p-8 bg-brand-background border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-brand-secondary shadow-sm mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0L3 18.172l1.5-1.5a4 4 0 015.656 0l2.3-2.3zM12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-primary mb-3">Odontopediatría</h3>
+                    <p class="text-brand-muted leading-relaxed mb-6 flex-grow">
+                        Cuidado especializado para los más pequeños, en un ambiente diseñado para eliminar el miedo y crear hábitos saludables.
+                    </p>
+                    <a href="https://wa.me/tu-numero" class="text-sm font-bold text-brand-secondary hover:text-brand-primary transition-colors flex items-center gap-2 group-hover:gap-3 transition-all">
+                        Saber más <span class="transition-transform group-hover:translate-x-1">→</span>
+                    </a>
+                </div>
+
+                <!-- Endodoncia -->
+                <div class="group p-8 bg-brand-background border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-brand-secondary shadow-sm mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-primary mb-3">Endodoncia</h3>
+                    <p class="text-brand-muted leading-relaxed mb-6 flex-grow">
+                        Salva tus piezas dentales con tratamientos de conducto precisos y sin dolor, utilizando tecnología de última generación.
+                    </p>
+                    <a href="https://wa.me/tu-numero" class="text-sm font-bold text-brand-secondary hover:text-brand-primary transition-colors flex items-center gap-2 group-hover:gap-3 transition-all">
+                        Saber más <span class="transition-transform group-hover:translate-x-1">→</span>
+                    </a>
+                </div>
+
+                <!-- Ortodoncia -->
+                <div class="group p-8 bg-brand-background border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-brand-secondary shadow-sm mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-primary mb-3">Ortodoncia</h3>
+                    <p class="text-brand-muted leading-relaxed mb-6 flex-grow">
+                        Alineación perfecta y sonrisas armoniosas mediante los sistemas más modernos y discretos de ortodoncia.
+                    </p>
+                    <a href="https://wa.me/tu-numero" class="text-sm font-bold text-brand-secondary hover:text-brand-primary transition-colors flex items-center gap-2 group-hover:gap-3 transition-all">
+                        Saber más <span class="transition-transform group-hover:translate-x-1">→</span>
+                    </a>
+                </div>
+
+                <!-- Prótesis Dental -->
+                <div class="group p-8 bg-brand-background border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-brand-secondary shadow-sm mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-primary mb-3">Prótesis Dental</h3>
+                    <p class="text-brand-muted leading-relaxed mb-6 flex-grow">
+                        Restauraciones funcionales y estéticas que devuelven la naturalidad a tu sonrisa y la confianza al hablar y comer.
+                    </p>
+                    <a href="https://wa.me/tu-numero" class="text-sm font-bold text-brand-secondary hover:text-brand-primary transition-colors flex items-center gap-2 group-hover:gap-3 transition-all">
+                        Saber más <span class="transition-transform group-hover:translate-x-1">→</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content placeholder for subsequent tasks -->
+    <div id="app-content"></div>
+
+    <!-- Footer placeholder -->
+    <footer id="main-footer"></footer>
+
+    <!-- Mobile Menu JS -->
+    <script>
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
